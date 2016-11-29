@@ -22,6 +22,13 @@ void poseCb(const geometry_msgs::Pose2DConstPtr msg)
             speed.linear.y = speed.linear.y / fabs(speed.linear.y) * 0.01;
         cmdVelPub.publish(speed);
     }
+    else
+    {
+        geometry_msgs::Twist speed;
+        speed.linear.x = 0.0;
+        speed.linear.y = 0.0;
+        cmdVelPub.publish(speed);
+    }
 }
 
 int main(int argc, char **argv)
